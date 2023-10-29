@@ -21,8 +21,9 @@ public class P02_RegisterPage {
     @FindBy(xpath = "//button[@name='register']") public WebElement signUpButton;
 
     @FindBy(xpath = "(//p[@class='submit-status'])[1]") public WebElement enterValidAccountUsername;
-    @FindBy(xpath = "//p[text()='An account is already registered with your email address. ']")
-    public WebElement accountIsAlreadyRegistered;
+
+    @FindBy(xpath = "//*[@id='signup']/form/p[6]") public WebElement accountIsAlreadyRegistered;
+
 
     @FindBy(xpath = "//*[@id='signup']/form/p[6]]")
     public WebElement provideValidEmailAddress; //(p[text()='Please provide a valid email address.']
