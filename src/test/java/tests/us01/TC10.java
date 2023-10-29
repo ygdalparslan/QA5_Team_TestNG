@@ -1,6 +1,7 @@
 package tests.us01;
 
 import com.github.javafaker.Faker;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_RegisterPage;
@@ -38,7 +39,7 @@ public class TC10 {
         p02RegisterPage.signUpButton.click();
 
         //8	Kayıt işleminin gerçekleştiğini doğrula
-        p01HomePage.signOutLink.isDisplayed();
+        Assert.assertTrue(p01HomePage.signOutLink.isDisplayed());
         
     }
 }

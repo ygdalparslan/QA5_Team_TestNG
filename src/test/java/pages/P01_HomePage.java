@@ -12,11 +12,9 @@ public class P01_HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//span[text()='Register']")
-    public WebElement registerButton;
+    @FindBy(xpath = "//span[text()='Register']") public WebElement registerButton;
 
-    @FindBy(xpath = "//span[text()='Sign Out']")
-    public WebElement signOutLink;
+    @FindBy(xpath = "//span[text()='Sign Out']") public WebElement signOutLink;
 
 
 }

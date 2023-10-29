@@ -1,7 +1,9 @@
 package tests.us01;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_RegisterPage;
@@ -20,7 +22,6 @@ public class TC04 {
 
         //1	Verilen URL'e git
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
-        String homePage =Driver.getDriver().getWindowHandle();
 
         //2	Register linkine tıkla
         p01HomePage.registerButton.click();
@@ -38,20 +39,11 @@ public class TC04 {
 
         //7	SIGN UP butonuna tıkla
         p02RegisterPage.signUpButton.click();
-//        String lastPage =Driver.getDriver().getWindowHandle();
-//
-//        System.out.println("homePage = " + homePage);
-//        System.out.println("lastPage = " + lastPage);
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         //8	Kayıt işleminin gerçekleşmediğini doğrula
-        String str=Driver.getDriver().switchTo().alert().getText();
+        ReusableMethods.verifyElementIsVisible(p02RegisterPage.signUpButton);
 
-
+        Driver.closeDriver();
 
     }
 }

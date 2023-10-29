@@ -1,6 +1,7 @@
 package tests.us02;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_RegisterPage;
@@ -26,7 +27,6 @@ public class TC01 {
         //3	Username alanına kayıt olurken girdiği username girilir
         p02RegisterPage.userNameBox.sendKeys(ConfigReader.getProperty("usernameRegister"));
 
-
         //4	Your Email address alanına kayıt olurken girdiği Email girilir
         p02RegisterPage.emailBox.sendKeys(ConfigReader.getProperty("emailAddressRegister"));//alejandro.jast@gmail.com
 
@@ -41,9 +41,6 @@ public class TC01 {
 
         //8	Kayıt işleminin tamamlanmadığını doğrula
         ReusableMethods.verifyElementIsVisible(p02RegisterPage.accountIsAlreadyRegistered);
-
-
-
 
     }
 }

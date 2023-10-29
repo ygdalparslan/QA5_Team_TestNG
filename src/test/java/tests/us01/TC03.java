@@ -9,6 +9,7 @@ import pages.P01_HomePage;
 import pages.P02_RegisterPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC03 {
 
@@ -40,6 +41,9 @@ public class TC03 {
         p02RegisterPage.signUpButton.click();
 
         //8	Kayıt işleminin gerçekleşmediğini doğrula
+        ReusableMethods.verifyElementIsVisible(p02RegisterPage.signUpButton);
+
+        Driver.closeDriver();
 
     }
 }

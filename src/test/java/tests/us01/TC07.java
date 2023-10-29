@@ -1,11 +1,13 @@
 package tests.us01;
 
 import com.github.javafaker.Faker;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_RegisterPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC07 {
 
@@ -38,6 +40,9 @@ public class TC07 {
         p02RegisterPage.signUpButton.click();
 
         //8	Kayıt işleminin gerçekleşmediğini doğrula
+        ReusableMethods.verifyElementIsVisible(p02RegisterPage.signUpButton);
+
+        Driver.closeDriver();
 
     }
 }
