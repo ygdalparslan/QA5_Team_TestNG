@@ -17,7 +17,6 @@ public class Driver {
         if (driver==null){
 
             String browser = ConfigReader.getProperty("browser");
-
             switch (browser){
                 case "chrome":
                     driver =new ChromeDriver();

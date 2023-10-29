@@ -22,5 +22,7 @@ public class P02_RegisterPage {
 
     @FindBy(xpath = "//button[@name='register']") public WebElement signUpButton;
 
+    @FindBy(xpath = "(//p[@class='submit-status'])[1]") public WebElement enterValidAccountUsername;
+    @FindBy(xpath = "//p[text()='An account is already registered with your email address. ']") public WebElement accountIsAlreadyRegistered;
 
 }

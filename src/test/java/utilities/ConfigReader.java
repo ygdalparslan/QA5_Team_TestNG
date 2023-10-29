@@ -9,7 +9,6 @@ public class ConfigReader {
 
     public static Properties properties;
 
-
     static {
 
         String path = "configuration.properties";
@@ -26,7 +25,6 @@ public class ConfigReader {
 
     public static String getProperty(String key){
         return properties.getProperty(key);
-
     }
 
 }

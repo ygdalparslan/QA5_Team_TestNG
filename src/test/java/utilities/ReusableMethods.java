@@ -5,12 +5,8 @@ import org.openqa.selenium.WebElement;
 
 public class ReusableMethods {
 
-
-    public static void verifyElementIsVisible(By locator){
-
-        WebElement element = Driver.driver.findElement(locator);
-        assert element.isDisplayed();
-
+    public static boolean verifyElementIsVisible(WebElement element) {
+        return element.isDisplayed();
     }
 
 }
