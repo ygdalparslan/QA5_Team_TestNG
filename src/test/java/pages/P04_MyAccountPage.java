@@ -15,9 +15,12 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div/div/div[3]/div[1]/div/a") public WebElement addressAddLink;
 
     @FindBy(xpath = "//*[@id='billing_first_name']") public WebElement billingFirstNameBox;
-    @FindBy(id = "#billing_last_name") public WebElement billingLastNameBox;
-    @FindBy(id = "#billing_company") public WebElement billingCompanyNameBox;
-    @FindBy(id = "#select2-billing_country-container") public WebElement billingCountryContainerNameBox;
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[2]/span/input")
+    public WebElement billingLastNameBox;
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[3]/span/input")
+    public WebElement billingCompanyNameBox;
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[4]/span/span/span[1]/span/span[1]/span")
+    public WebElement billingCountryContainerNameBox;
 
 
 }

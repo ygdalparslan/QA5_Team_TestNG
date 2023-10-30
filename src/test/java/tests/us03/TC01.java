@@ -2,6 +2,7 @@ package tests.us03;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
@@ -20,6 +21,7 @@ public class TC01 {
     P04_MyAccountPage p04MyAccountPage =new P04_MyAccountPage();
     Faker faker =new Faker();
 
+    Actions actions =new Actions(Driver.driver);
     @Test
     public void testCase01() {
 
@@ -28,7 +30,9 @@ public class TC01 {
         ReusableMethods.performLogin();
 
         //3	Site sayfasında el alt kısımda yer alan "my account" tıklanır.
-        p01HomePage.myAccountLink.click();
+        //ReusableMethods.wait(20);
+        p01HomePage.signOutLink.click();
+        //p01HomePage.myAccountLink.click();
 
         //4	"Addresses" butonuna tıklanır.
         p04MyAccountPage.addressLink.click();
@@ -44,10 +48,9 @@ public class TC01 {
 
         //8	"Company name (optional)" kutusu doldurulur.
         p04MyAccountPage.billingCompanyNameBox.sendKeys(faker.name().username());
-
-        //9	"Country / Region" kısmından ilgili alan seçilir.
-        Select select =new Select(p04MyAccountPage.billingCountryContainerNameBox);
-        select.selectByValue("Turkey");
+        actions.sendKeys(Keys.TAB)
+                        .sendKeys("Turkey")//9	"Country / Region" kısmından ilgili alan seçilir.
+                                .sendKeys(Keys.TAB).perform();
 
         //10	"Street address" kutusu doldurulur.
         //11	"Postcode / ZIP" kutusu doldurulur.

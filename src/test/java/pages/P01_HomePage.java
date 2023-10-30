@@ -22,8 +22,8 @@ public class P01_HomePage {
     @FindBy(xpath = "//span[text()='Sign In']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//div/nav/ul/li/a[text()='My Account']") public WebElement myAccountLink;
-
+    @FindBy(xpath = "/html/body/div[2]/footer/div/section[2]/div/div[2]/div/section/div/div[2]/div/div[2]/div/nav/ul/li[4]/a")
+    public WebElement myAccountLink;
 
 
 
