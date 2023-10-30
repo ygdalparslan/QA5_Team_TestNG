@@ -15,7 +15,6 @@ public class TC02 {
     P02_RegisterPage p02RegisterPage=new P02_RegisterPage();
     Faker faker =new Faker();
 
-
     @Test
     public void testCase02(){
 

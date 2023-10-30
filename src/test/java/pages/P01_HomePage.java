@@ -9,12 +9,22 @@ import utilities.Driver;
 public class P01_HomePage {
 
     public P01_HomePage() {
-        PageFactory.initElements(Driver.getDriver(),this);
+
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[text()='Register']") public WebElement registerButton;
+    @FindBy(xpath = "//span[text()='Register']")
+    public WebElement registerButton;
 
-    @FindBy(xpath = "//span[text()='Sign Out']") public WebElement signOutLink;
+    @FindBy(xpath = "//span[text()='Sign Out']")
+    public WebElement signOutLink;
+
+    @FindBy(xpath = "//span[text()='Sign In']")
+    public WebElement signInButton;
+
+    @FindBy(xpath = "//div/nav/ul/li/a[text()='My Account']") public WebElement myAccountLink;
+
+
 
 
 }

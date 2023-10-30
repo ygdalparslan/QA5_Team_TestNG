@@ -15,7 +15,6 @@ public class TC01 {
 
     P01_HomePage p01HomePage = new P01_HomePage();
     P02_RegisterPage p02RegisterPage = new P02_RegisterPage();
-
     Faker faker = new Faker();
 
     @Test
