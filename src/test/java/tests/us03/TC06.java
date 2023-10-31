@@ -10,7 +10,7 @@ import pages.P04_MyAccountPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC05 {
+public class TC06 {
 
     P01_HomePage p01HomePage =new P01_HomePage();
     P04_MyAccountPage p04MyAccountPage =new P04_MyAccountPage();
@@ -18,7 +18,7 @@ public class TC05 {
     Actions actions =new Actions(Driver.driver);
 
     @Test
-    public void testCase05(){
+    public void testCase06(){
 
         //1	Web sitesine gidilir.
         //2	Log in yapılır.
@@ -36,8 +36,8 @@ public class TC05 {
         //6	"First name" kutusu doldurulur.
         p04MyAccountPage.billingFirstNameBox.sendKeys(faker.name().firstName());
 
-        //7	"Last name" kutusu boş bırakılmalı
-        p04MyAccountPage.billingLastNameBox.clear();
+        //7	"Last name" kutusu doldurulur.
+        p04MyAccountPage.billingLastNameBox.sendKeys(faker.name().lastName());
 
         //8	"Company name (optional)" kutusu doldurulur.
         p04MyAccountPage.billingCompanyNameBox.sendKeys("uA Holding");
@@ -45,8 +45,8 @@ public class TC05 {
         //9	"Country / Region" kısmından ilgili alan seçilir.
         actions.sendKeys(Keys.TAB).sendKeys("Turkey").sendKeys(Keys.TAB).perform();
 
-        //10	"Street address" kutusu doldurulur.
-        p04MyAccountPage.billingStreetAddressBox.sendKeys("55 / Akkent");
+        //10	"Street address" kutusu boş bırakılır
+        p04MyAccountPage.billingStreetAddressBox.clear();
 
         //11	"Postcode / ZIP" kutusu doldurulur.
         p04MyAccountPage.billingPostcodeZipBox.sendKeys("06400");
@@ -66,7 +66,7 @@ public class TC05 {
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
         //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.lastNameRequired.isDisplayed());
+        Assert.assertTrue(p04MyAccountPage.streetAddressRequired.isDisplayed());
 
     }
 

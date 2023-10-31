@@ -33,7 +33,7 @@ public class TC04 {
         //5	Billing Address kısmının altında yer alan "ADD-->" butonuna tıklanır.
         p04MyAccountPage.addressAddLink.sendKeys(Keys.ENTER);
 
-        //6	"First name" kutusu doldurulur.
+        //6	"First name" kutusu boş bırakılır.
         p04MyAccountPage.billingFirstNameBox.clear();
 
         //7	"Last name" kutusu doldurulur.
