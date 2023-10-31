@@ -22,5 +22,24 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[4]/span/span/span[1]/span/span[1]/span")
     public WebElement billingCountryContainerNameBox;
 
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[5]/span/input")
+    public WebElement billingStreetAddressBox;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[7]/span/input")
+    public WebElement billingPostcodeZipBox;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[8]/span/input")
+    public WebElement billingTownCityBox;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[10]/span/input")
+    public WebElement billingPhoneNumberBox;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[9]/span/span/span[1]/span/span[1]/span")
+    public WebElement billingProvinceBox;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/p/button")
+    public WebElement billingSaveAddressButton;
+
+
 
 }

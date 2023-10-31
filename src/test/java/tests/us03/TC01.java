@@ -30,15 +30,13 @@ public class TC01 {
         ReusableMethods.performLogin();
 
         //3	Site sayfasında el alt kısımda yer alan "my account" tıklanır.
-        //ReusableMethods.wait(20);
-        p01HomePage.signOutLink.click();
-        //p01HomePage.myAccountLink.click();
+        p01HomePage.myAccountLink.sendKeys(Keys.ENTER);
 
         //4	"Addresses" butonuna tıklanır.
         p04MyAccountPage.addressLink.click();
 
         //5	Billing Address kısmının altında yer alan "ADD-->" butonuna tıklanır.
-        p04MyAccountPage.addressAddLink.click();
+        p04MyAccountPage.addressAddLink.sendKeys(Keys.ENTER);
 
         //6	"First name" kutusu doldurulur.
         p04MyAccountPage.billingFirstNameBox.sendKeys(faker.name().firstName());
@@ -49,17 +47,29 @@ public class TC01 {
         //8	"Company name (optional)" kutusu doldurulur.
         p04MyAccountPage.billingCompanyNameBox.sendKeys(faker.name().username());
         actions.sendKeys(Keys.TAB)
-                        .sendKeys("Turkey")//9	"Country / Region" kısmından ilgili alan seçilir.
-                                .sendKeys(Keys.TAB).perform();
+                .sendKeys("Turkey")//9	"Country / Region" kısmından ilgili alan seçilir.
+               .sendKeys(Keys.TAB).perform();
 
         //10	"Street address" kutusu doldurulur.
-        //11	"Postcode / ZIP" kutusu doldurulur.
-        //12	"Town / City" kutusu doldurulur.
-        //13	"Phone"  kutusu doldurulur
-        //14	"Province" kısmından ilgili alan seçilir.
-        //15	"Email address" kutusu doldurulur.
-        //16	"SAVE ADDRESS" butonuna tıklanır.
+        p04MyAccountPage.billingStreetAddressBox.sendKeys("Asss");
 
+        //11	"Postcode / ZIP" kutusu doldurulur.
+        p04MyAccountPage.billingPostcodeZipBox.sendKeys("5544");
+
+        //12	"Town / City" kutusu doldurulur.
+        p04MyAccountPage.billingTownCityBox.sendKeys("Bfr");
+        actions.sendKeys(Keys.TAB)
+                .sendKeys("Samsun").sendKeys(Keys.TAB).perform();//14	"Province" kısmından ilgili alan seçilir.
+
+        //13	"Phone"  kutusu doldurulur
+        p04MyAccountPage.billingPhoneNumberBox.sendKeys("5555");
+        actions.sendKeys(Keys.TAB).perform();
+
+        //15	"Email address" kutusu doldurulur.
+        // otomatik dolu olarak geldiği için boş bırakıldı
+
+        //16	"SAVE ADDRESS" butonuna tıklanır.
+        p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
     }
 }
