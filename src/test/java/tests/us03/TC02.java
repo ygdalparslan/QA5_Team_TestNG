@@ -3,27 +3,22 @@ package tests.us03;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
-import pages.P03_SignInPage;
 import pages.P04_MyAccountPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
-
-public class TC01 {
+public class TC02 {
 
     P01_HomePage p01HomePage =new P01_HomePage();
-    P03_SignInPage p03SignInPage =new P03_SignInPage();
     P04_MyAccountPage p04MyAccountPage =new P04_MyAccountPage();
     Faker faker =new Faker();
-
     Actions actions =new Actions(Driver.driver);
+
     @Test
-    public void testCase01() {
+    public void testCase02(){
 
         //1	Web sitesine gidilir.
         //2	Log in yapılır.
@@ -46,9 +41,9 @@ public class TC01 {
 
         //8	"Company name (optional)" kutusu doldurulur.
         p04MyAccountPage.billingCompanyNameBox.sendKeys("uA Holding");
-        actions.sendKeys(Keys.TAB)
-                .sendKeys("Turkey")//9	"Country / Region" kısmından ilgili alan seçilir.
-               .sendKeys(Keys.TAB).perform();
+
+        //9	"Country / Region" kısmından ilgili alan seçilir.
+        actions.sendKeys(Keys.TAB).sendKeys("Turkey").sendKeys(Keys.TAB).perform();
 
         //10	"Street address" kutusu doldurulur.
         p04MyAccountPage.billingStreetAddressBox.sendKeys("55 / Akkent");
@@ -58,18 +53,25 @@ public class TC01 {
 
         //12	"Town / City" kutusu doldurulur.
         p04MyAccountPage.billingTownCityBox.sendKeys("Yenimahalle");
-        actions.sendKeys(Keys.TAB)
-                .sendKeys("Samsun").sendKeys(Keys.TAB).perform();//14	"Province" kısmından ilgili alan seçilir.
+
+        //14	"Province" kısmından ilgili alan seçilir.
+        actions.sendKeys(Keys.TAB).sendKeys("Samsun").sendKeys(Keys.TAB).perform();
 
         //13	"Phone"  kutusu doldurulur
         p04MyAccountPage.billingPhoneNumberBox.sendKeys("5060606060");
-        actions.sendKeys(Keys.TAB).perform();
 
-        //15	"Email address" kutusu doldurulur.
-        // otomatik dolu olarak geldiği için boş bırakıldı
+        //15	"Email address" kutusu boş bırakılır.
+        p04MyAccountPage.billingEmailBox.clear();
 
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
+
+        //Kayıt işleminin gerçekleşmediğini doğrula.
+        Assert.assertTrue(p04MyAccountPage.emailAddressRequired.isDisplayed());
+
+
+
+
 
     }
 }

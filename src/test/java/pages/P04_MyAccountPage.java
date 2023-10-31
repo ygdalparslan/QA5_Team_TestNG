@@ -37,8 +37,14 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/div/p[9]/span/span/span[1]/span/span[1]/span")
     public WebElement billingProvinceBox;
 
+    @FindBy(xpath = "//*[@id=\"billing_email\"]")
+    public WebElement billingEmailBox;
+
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/p/button")
     public WebElement billingSaveAddressButton;
+
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
+    public WebElement emailAddressRequired;
 
 
 
