@@ -47,24 +47,7 @@ public class P04_MyAccountPage {
     public WebElement addressChangedSuccessfully;
 
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement emailAddressRequired;
+    public WebElement verifyAddressNotChanged;
 
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement firstNameRequired;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement lastNameRequired;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement streetAddressRequired;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement postcodeZIPRequired;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement townCityRequired;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
-    public WebElement phoneRequired;
 
 }

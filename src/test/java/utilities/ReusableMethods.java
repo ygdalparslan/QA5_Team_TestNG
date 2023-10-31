@@ -1,6 +1,8 @@
 package utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import pages.P01_HomePage;
 import pages.P03_SignInPage;
 
@@ -29,6 +31,11 @@ public class ReusableMethods {
         p03SignInPage.userNameBox.sendKeys(ConfigReader.getProperty("usernameRegister"));
         p03SignInPage.passwordBox.sendKeys(ConfigReader.getProperty("passwordRegister"));
         p03SignInPage.signInButton.click();
+    }
+
+    public static void verifyData(WebElement element,String expected) {
+        String actualDate =element.getText();
+        Assert.assertEquals(actualDate,expected);
     }
 
 

@@ -65,8 +65,9 @@ public class TC06 {
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.streetAddressRequired.isDisplayed());
+        //Kayıt işleminin gerçekleşmediğini doğrula. "Street address is a required field." metni görülmeli
+        String expectedData= "Street address is a required field.";
+        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
     }
 

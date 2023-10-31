@@ -65,8 +65,9 @@ public class TC04 {
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.firstNameRequired.isDisplayed());
+        //Kayıt işleminin gerçekleşmediğini doğrula. "First name is a required field." metni görülmeli
+        String expectedData= "First name is a required field.";
+        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
     }
 

@@ -65,8 +65,9 @@ public class TC05 {
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.lastNameRequired.isDisplayed());
+        //Kayıt işleminin gerçekleşmediğini doğrula. "Last name is a required field." metni görülmeli
+        String expectedData= "Last name is a required field.";
+        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
     }
 

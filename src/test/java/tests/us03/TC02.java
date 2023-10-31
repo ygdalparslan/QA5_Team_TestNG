@@ -66,8 +66,9 @@ public class TC02 {
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.emailAddressRequired.isDisplayed());
+        //Kayıt işleminin gerçekleşmediğini doğrula. "Email address is a required field." metni görülmeli
+        String expectedData= "Email address is a required field.";
+        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
     }
 }

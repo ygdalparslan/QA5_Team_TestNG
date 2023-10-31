@@ -65,8 +65,9 @@ public class TC07 {
         //16	"SAVE ADDRESS" butonuna tıklanır.
         p04MyAccountPage.billingSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //Kayıt işleminin gerçekleşmediğini doğrula.
-        Assert.assertTrue(p04MyAccountPage.postcodeZIPRequired.isDisplayed());
+        //Kayıt işleminin gerçekleşmediğini doğrula. "Postcode / ZIP is a required field." metni görülmeli
+        String expectedData= "Postcode / ZIP is a required field.";
+        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
     }
 
