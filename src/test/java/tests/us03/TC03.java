@@ -10,7 +10,7 @@ import pages.P04_MyAccountPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC02 {
+public class TC03 {
 
     P01_HomePage p01HomePage =new P01_HomePage();
     P04_MyAccountPage p04MyAccountPage =new P04_MyAccountPage();
@@ -18,7 +18,7 @@ public class TC02 {
     Actions actions =new Actions(Driver.driver);
 
     @Test
-    public void testCase02(){
+    public void testCase03(){
 
         //1	Web sitesine gidilir.
         //2	Log in yapılır.
@@ -60,7 +60,7 @@ public class TC02 {
         //13	"Phone"  kutusu doldurulur
         p04MyAccountPage.billingPhoneNumberBox.sendKeys("5060606060");
 
-        //15	"Email address" kutusu boş bırakılır.
+        //15	"Email address" kutusu doldurulur.
         p04MyAccountPage.billingEmailBox.clear();
 
         //16	"SAVE ADDRESS" butonuna tıklanır.
@@ -70,4 +70,5 @@ public class TC02 {
         Assert.assertTrue(p04MyAccountPage.emailAddressRequired.isDisplayed());
 
     }
+
 }
