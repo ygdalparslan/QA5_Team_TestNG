@@ -49,6 +49,11 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
     public WebElement firstNameRequired;
 
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
+    public WebElement lastNameRequired;
+
+
+
 
 
 }
