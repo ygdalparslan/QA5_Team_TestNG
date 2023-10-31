@@ -43,6 +43,9 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/form/div/p/button")
     public WebElement billingSaveAddressButton;
 
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div[1]/div")
+    public WebElement addressChangedSuccessfully;
+
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
     public WebElement emailAddressRequired;
 
@@ -55,8 +58,9 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
     public WebElement streetAddressRequired;
 
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
+    public WebElement postcodeZIPRequired;
 
-    //Street address is a required field.
 
 
 
