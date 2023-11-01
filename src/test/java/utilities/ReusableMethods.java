@@ -33,6 +33,7 @@ public class ReusableMethods {
         p03SignInPage.signInButton.click();
     }
 
+
     public static void verifyData(WebElement element,String expected) {
         String actualDate =element.getText();
         Assert.assertEquals(actualDate,expected);

@@ -71,8 +71,4 @@ public class P04_MyAccountPage {
     public WebElement shippingAddressSaveAddressButton;
 
 
-
-    //-//button[text()='Save address']
-
-
 }
