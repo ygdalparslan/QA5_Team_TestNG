@@ -70,7 +70,7 @@ public class TC07 {
         //13	"SAVE CHANGES" butonuna tıklanır
         p05EditAccountDetailsPage.editAccountDetailsSave_accountButton.sendKeys(Keys.ENTER);
 
-        //14	Değişiklik işleminin tamamlandığı doğrulanır->New passwords do not match.
+        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->New passwords do not match.
         String expectedData="New passwords do not match.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 

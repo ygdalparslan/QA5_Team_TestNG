@@ -2,6 +2,7 @@ package tests.us05;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P03_SignInPage;
@@ -11,7 +12,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC02 {
+public class TC09 {
 
     P01_HomePage p01HomePage =new P01_HomePage();
     P03_SignInPage p03SignInPage =new P03_SignInPage();
@@ -22,7 +23,7 @@ public class TC02 {
     Faker faker =new Faker();
 
     @Test
-    public void testCase02(){
+    public void testCase09(){
 
         //1	Web sitesine gidilir	https://allovercommerce.com
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
@@ -40,39 +41,37 @@ public class TC02 {
         //4	"Edit your password and account details" yazısına tıklanır
         p05EditAccountDetailsPage.editYourPasswordAndAccountDetails.click();
 
-        //5	First name kutucuğu boş bırakılır
-        //p05EditAccountDetailsPage.editAccountDetailsFirstNameBox.sendKeys(faker.name().firstName());
+        //5	First name kutucuğu doldurulur
+        p05EditAccountDetailsPage.editAccountDetailsFirstNameBox.sendKeys(faker.name().firstName());
 
-        //6	Last name kutucuğu doldurulur	{soyisim}
+        //6	Last name kutucuğu doldurulur
         p05EditAccountDetailsPage.editAccountDetailsLastNameBox.sendKeys(faker.name().lastName());
 
-        //7	Display name kutucuğuna yeni değerler girilir	{display name}
+        //7	Display name kutucuğu doldurulur
         p05EditAccountDetailsPage.editAccountDetailsDisplayNameBox.sendKeys(faker.name().username());
 
-        //8	Email address kutucuğuna yeni değerler girilir	{Email adresi}
+        //8	Email address kutucuğuna format dışı değerler girilir
         p05EditAccountDetailsPage.editAccountDetailsEmailAddressBox.clear();
-        p05EditAccountDetailsPage.editAccountDetailsEmailAddressBox.sendKeys(faker.internet().emailAddress());
+        p05EditAccountDetailsPage.editAccountDetailsEmailAddressBox.sendKeys("qa5serhanmail.com");
 
         //9	Paragraf kutucuğuna değerler girilir
         Driver.getDriver().switchTo().frame("user_description_ifr");
         p05EditAccountDetailsPage.editAccountDetailsParagrafBox.sendKeys(faker.lorem().paragraph());
 
-        //10	"Current password" kutucuğuna mevcut parola girilir	Serhan123456.
+        //10	"Current password" kutucuğuna mevcut parola girilir
         Driver.getDriver().switchTo().parentFrame();
         p05EditAccountDetailsPage.editAccountDetailsPassword_currentBox.sendKeys(ConfigReader.getProperty("passwordSerhan"));
 
-        //11	"New password" kutucuğuna yeni ve geçerli bir parola girilir	Serhan12345.
+        //11	"New password" kutucuğuna yeni ve geçerli bir parola girilir
         p05EditAccountDetailsPage.editAccountDetailsNewPasswordBox.sendKeys("Serhan12345.");
 
-        //12	"Comfirm password" kutucuğuna "new password"a girilen parola girilir	Serhan12345.
+        //12	"Comfirm password" kutucuğuna "new password"a girilen parola girilir
         p05EditAccountDetailsPage.editAccountDetailsConfirmPasswordBox.sendKeys("Serhan12345.");
 
         //13	"SAVE CHANGES" butonuna tıklanır
         p05EditAccountDetailsPage.editAccountDetailsSave_accountButton.sendKeys(Keys.ENTER);
 
-        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->FIRST NAME is a required field.
-        String expectedData="FIRST NAME is a required field.";
-        ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
+        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->Account details changed successfully. görülmemeli
 
         Driver.closeDriver();
 

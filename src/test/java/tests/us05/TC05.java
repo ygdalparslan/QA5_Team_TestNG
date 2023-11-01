@@ -70,7 +70,7 @@ public class TC05 {
         //13	"SAVE CHANGES" butonuna tıklanır
         p05EditAccountDetailsPage.editAccountDetailsSave_accountButton.sendKeys(Keys.ENTER);
 
-        //14	Değişiklik işleminin tamamlandığı doğrulanır->EMAIL ADDRESS is a required field.
+        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->EMAIL ADDRESS is a required field.
         String expectedData="EMAIL ADDRESS is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 

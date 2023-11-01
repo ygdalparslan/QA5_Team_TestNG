@@ -70,7 +70,7 @@ public class TC08 {
         //13	"SAVE CHANGES" butonuna tıklanır
         p05EditAccountDetailsPage.editAccountDetailsSave_accountButton.sendKeys(Keys.ENTER);
 
-        //14	Değişiklik işleminin tamamlandığı doğrulanır->Please re-enter your password.
+        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->Please re-enter your password.
         String expectedData="Please re-enter your password.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 

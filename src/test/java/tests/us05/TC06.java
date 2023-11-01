@@ -71,7 +71,7 @@ public class TC06 {
         //13	"SAVE CHANGES" butonuna tıklanır
         p05EditAccountDetailsPage.editAccountDetailsSave_accountButton.sendKeys(Keys.ENTER);
 
-        //14	Değişiklik işleminin tamamlandığı doğrulanır->Please enter your current password.
+        //14	Değişiklik işleminin tamamlanmadığı doğrulanır->Please enter your current password.
         String expectedData="Please enter your current password.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
