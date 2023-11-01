@@ -39,7 +39,7 @@ public class TC01 {
         p02RegisterPage.privacyPolicyBox.click();
 
         //7	SIGN UP butonuna tıkla
-        p02RegisterPage.signUpButton.click();
+        //p02RegisterPage.signUpButton.click();
 
         //8	Kayıt işleminin gerçekleştiğini doğrula
         Assert.assertTrue(p01HomePage.signOutLink.isDisplayed());
