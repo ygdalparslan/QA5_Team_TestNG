@@ -40,6 +40,7 @@ public class TC10 {
 
         //8	Kayıt işleminin gerçekleştiğini doğrula
         Assert.assertTrue(p01HomePage.signOutLink.isDisplayed());
-        
+
+        Driver.closeDriver();
     }
 }

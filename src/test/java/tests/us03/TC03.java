@@ -70,6 +70,8 @@ public class TC03 {
         String expectedData= "Email address is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 
 }

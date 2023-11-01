@@ -75,5 +75,7 @@ public class TC01 {
         //17 "Address changed successfully." yazısı yazmalı ve fatura adresinin kayıt işlemi gerçekleşmeli
         Assert.assertTrue(p04MyAccountPage.addressChangedSuccessfully.isDisplayed());
 
+        Driver.closeDriver();
+
     }
 }

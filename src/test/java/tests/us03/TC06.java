@@ -69,6 +69,8 @@ public class TC06 {
         String expectedData= "Street address is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 
 }

@@ -69,6 +69,8 @@ public class TC08 {
         String expectedData= "Town / City is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 
 }

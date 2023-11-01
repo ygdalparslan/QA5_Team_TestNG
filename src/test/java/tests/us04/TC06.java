@@ -11,7 +11,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC05 {
+public class TC06 {
 
     P01_HomePage p01HomePage =new P01_HomePage();
     P03_SignInPage p03SignInPage =new P03_SignInPage();
@@ -21,7 +21,7 @@ public class TC05 {
 
 
     @Test
-    public void testCase05(){
+    public void testCase06(){
 
 
         //1	https://allovercommerce.com/ adresine gider.
@@ -55,21 +55,21 @@ public class TC05 {
         //10	Country/Region kutusuna ülke ismi girer.
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys("Turkey").sendKeys(Keys.TAB).perform();
 
-        //11	Street address kutusu boş bırakılır.
-        p04MyAccountPage.shippingAddressStreetAddressBox.clear();
+        //11	Street address kutusuna sokak ve adresini girer.
+        p04MyAccountPage.shippingAddressStreetAddressBox.sendKeys("Street address");
 
         //12	Postcode / ZIP  kutusuna posta kodu girer
         p04MyAccountPage.shippingAddressPostcodeZIPBox.sendKeys("55400");
 
-        //13	Town / City/State  kutusuna kasaba/şehir/eyalet ismi girer.
-        p04MyAccountPage.shippingAddressTownCityBox.sendKeys("Town / City");
+        //13	Town / City/State kutusu boş bırakılır.
+        p04MyAccountPage.shippingAddressTownCityBox.clear();
         actions.sendKeys(Keys.TAB).sendKeys("Samsun").sendKeys(Keys.TAB).perform();
 
         //14	Save address butonuna tıklanır
         p04MyAccountPage.shippingAddressSaveAddressButton.sendKeys(Keys.ENTER);
 
-        //15  "Street address is a required field." metni görülmeli.
-        String expectedData ="Street address is a required field.";
+        //15  "Town / City is a required field." metni görülmeli.
+        String expectedData ="Town / City is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
         Driver.closeDriver();

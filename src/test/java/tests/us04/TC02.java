@@ -72,5 +72,7 @@ public class TC02 {
         String expectedData ="First name is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 }

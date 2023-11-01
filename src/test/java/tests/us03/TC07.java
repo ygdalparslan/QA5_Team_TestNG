@@ -69,6 +69,8 @@ public class TC07 {
         String expectedData= "Postcode / ZIP is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 
 }

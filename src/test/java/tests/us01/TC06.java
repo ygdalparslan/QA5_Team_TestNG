@@ -42,5 +42,7 @@ public class TC06 {
         //8	Kayıt işleminin gerçekleştiğini doğrula
         ReusableMethods.verifyElementIsVisible(p02RegisterPage.enterValidAccountUsername);
 
+        Driver.closeDriver();
+
     }
 }

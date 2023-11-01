@@ -41,6 +41,7 @@ public class TC09 {
         //8	Kayıt işleminin gerçekleşmediğini doğrula
         Assert.assertTrue(p01HomePage.signOutLink.isDisplayed());
 
+        Driver.closeDriver();
 
         //BUG: 11 haneli bir şifre girildiği halde kayıt işlemi gerçekleşti
 

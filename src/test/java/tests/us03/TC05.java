@@ -69,6 +69,8 @@ public class TC05 {
         String expectedData= "Last name is a required field.";
         ReusableMethods.verifyData(p04MyAccountPage.verifyAddressNotChanged,expectedData);
 
+        Driver.closeDriver();
+
     }
 
 }

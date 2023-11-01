@@ -45,7 +45,7 @@ public class TC01 {
         p04MyAccountPage.addressLink.click();
 
         //7	Shipping add address sekmesine tıklanır
-        p04MyAccountPage.shippingAddressAddLink.click();
+        p04MyAccountPage.shippingAddressAddLink.sendKeys(Keys.ENTER);
 
         //8	First name kutusuna isim girilir
         p04MyAccountPage.shippingAddressFirstnameBox.sendKeys(faker.name().firstName());
@@ -72,6 +72,8 @@ public class TC01 {
         //15  "Address changed successfully.." metni görülmeli--//div[@class='page-title-bar']Address changed successfully.
         String expectedData ="Address changed successfully.";
         ReusableMethods.verifyData(p04MyAccountPage.addressChangedSuccessfully,expectedData);
+
+        Driver.closeDriver();
 
     }
 }
