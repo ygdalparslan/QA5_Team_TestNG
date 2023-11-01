@@ -49,5 +49,30 @@ public class P04_MyAccountPage {
     @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div/ul/li")
     public WebElement verifyAddressNotChanged;
 
+    @FindBy(xpath = "/html/body/div[1]/main/div/div/div/div/div/div/div/div[3]/div[2]/div/a")
+    public WebElement shippingAddressAddLink;
+
+    @FindBy(xpath = "//input[@id='shipping_first_name']")
+    public WebElement shippingAddressFirstnameBox;
+
+    @FindBy(xpath = "//input[@id='shipping_last_name']")
+    public WebElement shippingAddressLastnameBox;
+
+    @FindBy(xpath = "//input[@id='shipping_address_1']")
+    public WebElement shippingAddressStreetAddressBox;
+
+    @FindBy(xpath = "//input[@id='shipping_postcode']")
+    public WebElement shippingAddressPostcodeZIPBox;
+
+    @FindBy(xpath = "//input[@id='shipping_city']")
+    public WebElement shippingAddressTownCityBox;
+
+    @FindBy(xpath = "//button[text()='Save address']")
+    public WebElement shippingAddressSaveAddressButton;
+
+
+
+    //-//button[text()='Save address']
+
 
 }
