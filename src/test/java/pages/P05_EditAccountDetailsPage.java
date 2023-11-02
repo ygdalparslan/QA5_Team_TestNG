@@ -46,7 +46,4 @@ public class P05_EditAccountDetailsPage {
     @FindBy(xpath = "//i[@class='fas fa-check']")
     public WebElement verifyAccountDetailsChanged;
 
-
-    //-//input[@id='password_current']
-
 }
