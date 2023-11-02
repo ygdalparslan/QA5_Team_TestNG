@@ -43,6 +43,9 @@ public class P06_ShoppingPage {
     @FindBy(xpath = "//p[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received order-success']")
     public WebElement verfyOrderReceived;
 
+    @FindBy(xpath = "//input[@class='input-text qty text']")
+    public WebElement quantity;
+
     @FindBy(xpath = "//span/a[text()='pen']")
     public WebElement productInCart;
 }

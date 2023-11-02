@@ -40,6 +40,4 @@ public class P01_HomePage {
     public List<WebElement> getSearchList;
 
 
-    //div>form>input~input
-
 }

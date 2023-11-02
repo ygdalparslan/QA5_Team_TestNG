@@ -23,8 +23,6 @@ public class TC01 {
     public void testCase01(){
 
         P01_HomePage p01HomePage =new P01_HomePage();
-        P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
-        Actions actions =new Actions(Driver.driver);
 
         //1	Web sitesine gidilir.
         //2	Log in olunur.

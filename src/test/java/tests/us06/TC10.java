@@ -12,14 +12,14 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class TC010 {
+public class TC10 {
 
     private final String testName = "US06 || TC01-Kullanıcı siteden alışveris yapabilmeli";
     private final String description = "Tüm alanlara valid veri girilmeli";
     private final String raporMesaji = "Thank you. Your order has been received. Yazısı görülüp Alışveriş tamamlanmalı";
 
     @Test
-    public void testCase01(){
+    public void testCase10(){
 
         P01_HomePage p01HomePage =new P01_HomePage();
         P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
@@ -32,7 +32,7 @@ public class TC010 {
         //3	Search box  kısmına aranacak ürün ismi yazılır ve aratılır.
         String aranacakUrun ="pen";
         ReusableMethods.wait(7);
-        p01HomePage.searchBox.sendKeys("pen", Keys.ENTER);
+        p01HomePage.searchBox.sendKeys(aranacakUrun, Keys.ENTER);
         ReusableMethods.wait(5);
 
         //4 Bulunan sonuçlardan istenen ürün üzerine gelinerek sepet simgesine (Cart) tıklanır.
@@ -69,8 +69,8 @@ public class TC010 {
         p06ShoppingPage.placeOrderButton.sendKeys(Keys.ENTER);
 
         //12 "Thank you. Your order has been received." doğrulanır
-        String xpectedData ="Thank you. Your order has been received.";
-        ReusableMethods.verifyData(p06ShoppingPage.verfyOrderReceived,xpectedData);
+        String expectedData ="Thank you. Your order has been received.";
+        ReusableMethods.verifyData(p06ShoppingPage.verfyOrderReceived,expectedData);
 
         Driver.closeDriver();
 
