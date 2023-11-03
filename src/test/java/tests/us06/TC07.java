@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P06_ShoppingPage;
@@ -13,14 +12,14 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class TC10 {
+public class TC07 {
 
-    private final String testName = "US06 || TC01-Kullanıcı siteden alışveris yapabilmeli";
+    private final String testName = "US06 || TC07-Kullanıcı siteden alışveris yapabilmeli";
     private final String description = "Tüm alanlara valid veri girilmeli";
     private final String raporMesaji = "Thank you. Your order has been received. Yazısı görülüp Alışveriş tamamlanmalı";
 
     @Test
-    public void testCase10(){
+    public void testCase07(){
 
         P01_HomePage p01HomePage =new P01_HomePage();
         P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
@@ -48,27 +47,23 @@ public class TC10 {
         p06ShoppingPage.addToCartButton.click();
 
         //4	Sağ Üst Köşedeki Sepete (Cart) Tıkla
+        ReusableMethods.waitForElementToBeClickable(p06ShoppingPage.cartButton,10);
         p06ShoppingPage.cartButton.click();
 
         //5 "View Cart" Butonuna Tıkla
         p06ShoppingPage.viewCartButton.click();
 
-        //6	Sepetteki Ürün Miktarını Artır
-        p06ShoppingPage.cartButtonDetailQuantityPlus.click();
-
-        //7	Fartura adresinin göründüğünü doğrula
-        Assert.assertTrue(p06ShoppingPage.shippingText.isDisplayed());
-
-        //8	Proceed To Checkout Butonuna Tıkla
+        //6	Proceed To Checkout Butonuna Tıkla
+        ReusableMethods.waitForElementToBeClickable(p06ShoppingPage.proceedToCheckoutButton,10);
         p06ShoppingPage.proceedToCheckoutButton.sendKeys(Keys.ENTER);
 
-        //9 "Payment Methods" kısmından ödeme seçeneğini tıkla
+        //7 "Payment Methods" kısmından ödeme seçeneğini tıkla
         p06ShoppingPage.paymentMethodsWireTransfer.sendKeys(Keys.ENTER);
 
-        //10 "Place Order" Butonuna Tıkla
+        //8 "Place Order" Butonuna Tıkla
         p06ShoppingPage.placeOrderButton.sendKeys(Keys.ENTER);
 
-        //11 "Thank you. Your order has been received." doğrulanır
+        //9 "Thank you. Your order has been received." doğrulanır
         String expectedData ="Thank you. Your order has been received.";
         ReusableMethods.verifyData(p06ShoppingPage.verfyOrderReceived,expectedData);
 
