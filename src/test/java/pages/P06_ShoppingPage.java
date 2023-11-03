@@ -25,6 +25,9 @@ public class P06_ShoppingPage {
     @FindBy (xpath = "//button[@class='quantity-plus w-icon-plus']")
     public WebElement cartButtonDetailQuantityPlus;
 
+    @FindBy (xpath = "//button[@class='quantity-minus w-icon-minus']")
+    public WebElement cartButtonDetailQuantityMinus;
+
     @FindBy(xpath = "//a[text()='View cart']")
     public WebElement viewCartButton;
 
@@ -45,6 +48,9 @@ public class P06_ShoppingPage {
 
     @FindBy(xpath = "//input[@class='input-text qty text']")
     public WebElement quantity;
+
+    @FindBy(name = "update_cart")
+    public WebElement updateCartButton;
 
     @FindBy(xpath = "//span/a[text()='pen']")
     public WebElement productInCart;
