@@ -26,17 +26,16 @@ public class TC04 {
         P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
         Actions actions =new Actions(Driver.driver);
 
-        //1	Web sitesine gidilir.
-        //2	Log in olunur.
+        //1	Web sitesine git ve Log in ol
         ReusableMethods.performLogin();
 
-        //3	Search box  kısmına aranacak ürün ismi yazılır ve aratılır.
+        //2	Ürün Ara
         String aranacakUrun ="pen";
         ReusableMethods.wait(7);
         p01HomePage.searchBox.sendKeys(aranacakUrun, Keys.ENTER);
         ReusableMethods.wait(5);
 
-        //4 Bulunan sonuçlardan istenen ürün üzerine gelinerek sepet simgesine (Cart) tıklanır.
+        //3 Bulunan sonuçlardan istenen ürün üzerine gel ve sepete (Cart) tıkla
         List<WebElement> urunListesi = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
 
         if (urunListesi.size() >= 2) {
@@ -44,25 +43,25 @@ public class TC04 {
             actions.moveToElement(ikinciUrun).perform();
         } else {
             System.out.println("Listede en az iki ürün bulunmalıdır.");
+            return; // Eğer yeterli ürün yoksa testi burada sonlandır
         }
-
         actions.doubleClick(p06ShoppingPage.addToCartButton).perform();
 
-        //5	Site sayfasından sağ üst sekmede yer alan sepet simgesine (Cart) tıklanır.
+        //4	Sağ Üst Köşedeki Sepete (Cart) Tıkla
         p06ShoppingPage.cartButton.click();
         ReusableMethods.wait(5);
 
-        //6 Açılan sekmeden "View Cart" butonuna tıklanır
+        //5 "View Cart" Butonuna Tıkla
         p06ShoppingPage.viewCartButton.click();
         ReusableMethods.wait(5);
 
-        //7	Sepetteki ürün "Quantity" kısmının altında yer alan alandan ürün miktarı azaltılır.
+        //6	Sepetteki Ürün Miktarını Azalt
         int firstQuantity =Integer.parseInt(p06ShoppingPage.quantity.getAttribute("value"));
         ReusableMethods.wait(5);
         p06ShoppingPage.cartButtonDetailQuantityMinus.click();
         int lastQuantity =Integer.parseInt(p06ShoppingPage.quantity.getAttribute("value"));
 
-        //8	Sepetteki ürün miktarının artırıldığı doğrulanır.
+        //7	Ürün Miktarının Azaldığını Doğrula
         boolean expecdetData = lastQuantity < firstQuantity;
         Assert.assertTrue(expecdetData);
 

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P06_ShoppingPage;
@@ -25,17 +26,16 @@ public class TC10 {
         P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
         Actions actions =new Actions(Driver.driver);
 
-        //1	Web sitesine gidilir.
-        //2	Log in olunur.
+        //1	Web sitesine git ve Log in ol
         ReusableMethods.performLogin();
 
-        //3	Search box  kısmına aranacak ürün ismi yazılır ve aratılır.
+        //2	Ürün Ara
         String aranacakUrun ="pen";
         ReusableMethods.wait(7);
         p01HomePage.searchBox.sendKeys(aranacakUrun, Keys.ENTER);
         ReusableMethods.wait(5);
 
-        //4 Bulunan sonuçlardan istenen ürün üzerine gelinerek sepet simgesine (Cart) tıklanır.
+        //3 Bulunan sonuçlardan istenen ürün üzerine gel ve sepete (Cart) tıkla
         List<WebElement> urunListesi = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
 
         if (urunListesi.size() >= 2) {
@@ -43,32 +43,32 @@ public class TC10 {
             actions.moveToElement(ikinciUrun).perform();
         } else {
             System.out.println("Listede en az iki ürün bulunmalıdır.");
+            return; // Eğer yeterli ürün yoksa testi burada sonlandır
         }
-
         p06ShoppingPage.addToCartButton.click();
 
-        //5	Site sayfasından sağ üst sekmede yer alan sepet simgesine (Cart) tıklanır.
+        //4	Sağ Üst Köşedeki Sepete (Cart) Tıkla
         p06ShoppingPage.cartButton.click();
 
-        //6 Açılan sekmeden "View Cart" butonuna tıklanır
+        //5 "View Cart" Butonuna Tıkla
         p06ShoppingPage.viewCartButton.click();
 
-        //7	Sepetteki ürün "Quantity" kısmının altında yer alan alandan arttırıp veya azaltılmalı
+        //6	Sepetteki Ürün Miktarını Artır
         p06ShoppingPage.cartButtonDetailQuantityPlus.click();
 
-        //8	Fatura adresi "Cart Totals" kısmının altında yer alan"Shipping" kısmında gözükmeli
-        p06ShoppingPage.shippingText.isDisplayed();
+        //7	Fartura adresinin göründüğünü doğrula
+        Assert.assertTrue(p06ShoppingPage.shippingText.isDisplayed());
 
-        //9	Proceed To Checkout Button tıklanır
+        //8	Proceed To Checkout Butonuna Tıkla
         p06ShoppingPage.proceedToCheckoutButton.sendKeys(Keys.ENTER);
 
-        //10 Ekranın sağ tarafında "Payment Methods" kısmının altında yer alan ödeme seçenekleri seçilmeli
+        //9 "Payment Methods" kısmından ödeme seçeneğini tıkla
         p06ShoppingPage.paymentMethodsWireTransfer.sendKeys(Keys.ENTER);
 
-        //11	"Place Order" butonu seçilmeli alışveriş tamamlanmalı
+        //10 "Place Order" Butonuna Tıkla
         p06ShoppingPage.placeOrderButton.sendKeys(Keys.ENTER);
 
-        //12 "Thank you. Your order has been received." doğrulanır
+        //11 "Thank you. Your order has been received." doğrulanır
         String expectedData ="Thank you. Your order has been received.";
         ReusableMethods.verifyData(p06ShoppingPage.verfyOrderReceived,expectedData);
 

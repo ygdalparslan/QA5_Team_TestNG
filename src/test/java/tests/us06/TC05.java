@@ -13,14 +13,14 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class TC02 {
+public class TC05 {
 
-    private final String testName = "US06 || TC02-Kullanıcı aradağı ürünü sepete ekleyebilmeli";
-    private final String description = "Aranan ürün sonuçlarda görünmeli";
-    private final String raporMesaji = "Aranan ürün sepete eklenmiştir";
+    private final String testName = "US06 || TC05-Fartura adresi görülmeli";
+    private final String description = "Kullanıcı ürünleri satın alabilmek için fatura adresini görebilmelidir.";
+    private final String raporMesaji = "Fatura adresi görülmüştür.";
 
     @Test
-    public void testCase02(){
+    public void testCase05(){
 
         P01_HomePage p01HomePage =new P01_HomePage();
         P06_ShoppingPage p06ShoppingPage =new P06_ShoppingPage();
@@ -50,8 +50,11 @@ public class TC02 {
         //4	Sağ Üst Köşedeki Sepete (Cart) Tıkla
         p06ShoppingPage.cartButton.click();
 
-        //6 Açılan sekmede seçilen ürünün olduğu doğrula
-        Assert.assertTrue(p06ShoppingPage.viewCartButton.isDisplayed());
+        //5 "View Cart" Butonuna Tıkla
+        p06ShoppingPage.viewCartButton.click();
+
+        //6	Fartura adresinin göründüğünü doğrula
+        Assert.assertTrue(p06ShoppingPage.shippingText.isDisplayed());
 
         Driver.closeDriver();
 

@@ -15,34 +15,30 @@ import java.util.List;
 
 public class TC01 {
 
-    private final String testName = "US06 || TC01-Kullanıcı search box tan istediği ürünü arayabilmeli";
-    private final String description = "search box'a mağazada bulunan bir ürün girilmeli";
-    private final String raporMesaji = "Aranan ürün sonuçlarda görülmeli";
+    private final String testName = "US06 || TC01-Kullanıcı search box'tan istediği ürünü arayabilmeli";
+    private final String description = "Search box'a mağazada bulunan bir ürün girilmeli";
+    private final String raporMesaji = "Aranan ürün sonuçlarda görülmüştür.";
 
     @Test
     public void testCase01(){
 
         P01_HomePage p01HomePage =new P01_HomePage();
 
-        //1	Web sitesine gidilir.
-        //2	Log in olunur.
+        //1	Web sitesine git ve Log in ol
         ReusableMethods.performLogin();
 
-        //3	Search box  kısmına aranacak ürün ismi yazılır ve aratılır.
-
+        //2	Ürün Ara
         String aranacakUrun ="pen";
         ReusableMethods.wait(7);
         p01HomePage.searchBox.sendKeys(aranacakUrun, Keys.ENTER);
         ReusableMethods.wait(5);
 
-        //4 Bulunan sonuçlarda aranan ürünün olduğu doğrulanır.
-
+        //3 Bulunan sonuçlardan istenen ürünün göründüğünü doğrula
         List<WebElement> urunListesi = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
         boolean expectedData=true;
 
         if (!urunListesi.isEmpty()) {
             for (WebElement w : urunListesi) {
-
                 if (w.getText().contains(aranacakUrun)) {
                     expectedData=true;
                     break;
