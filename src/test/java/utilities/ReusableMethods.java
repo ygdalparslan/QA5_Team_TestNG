@@ -2,9 +2,13 @@ package utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.P01_HomePage;
 import pages.P03_SignInPage;
+
+import java.time.Duration;
 
 public class ReusableMethods {
 
@@ -38,6 +42,12 @@ public class ReusableMethods {
         String actualDate =element.getText();
         Assert.assertEquals(actualDate,expected);
     }
+
+    public static void waitForElementToBeClickable(WebElement element, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeoutInSeconds));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
 
 
 }

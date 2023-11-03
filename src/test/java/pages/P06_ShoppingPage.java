@@ -40,6 +40,11 @@ public class P06_ShoppingPage {
     @FindBy(id = "payment_method_bacs")
     public WebElement paymentMethodsWireTransfer;
 
+    @FindBy(id = "payment_method_cod")
+    public WebElement paymentMethodsPayAtTheDoor;
+
+    // payment_method_cod
+
     @FindBy(id = "place_order")
     public WebElement placeOrderButton;
 

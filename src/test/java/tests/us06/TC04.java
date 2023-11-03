@@ -48,16 +48,16 @@ public class TC04 {
         actions.doubleClick(p06ShoppingPage.addToCartButton).perform();
 
         //4	Sağ Üst Köşedeki Sepete (Cart) Tıkla
+        ReusableMethods.waitForElementToBeClickable(p06ShoppingPage.cartButton,10);
         p06ShoppingPage.cartButton.click();
-        ReusableMethods.wait(5);
 
         //5 "View Cart" Butonuna Tıkla
+        ReusableMethods.waitForElementToBeClickable(p06ShoppingPage.viewCartButton,10);
         p06ShoppingPage.viewCartButton.click();
-        ReusableMethods.wait(5);
 
         //6	Sepetteki Ürün Miktarını Azalt
         int firstQuantity =Integer.parseInt(p06ShoppingPage.quantity.getAttribute("value"));
-        ReusableMethods.wait(5);
+        ReusableMethods.waitForElementToBeClickable(p06ShoppingPage.cartButtonDetailQuantityMinus,10);
         p06ShoppingPage.cartButtonDetailQuantityMinus.click();
         int lastQuantity =Integer.parseInt(p06ShoppingPage.quantity.getAttribute("value"));
 
