@@ -19,9 +19,8 @@ import java.util.Date;
 
 public class ReusableMethods {
 
-    static P01_HomePage p01HomePage = new P01_HomePage();
-    static P03_SignInPage p03SignInPage = new P03_SignInPage();
-
+    P01_HomePage p01HomePage = new P01_HomePage();
+    P03_SignInPage p03SignInPage = new P03_SignInPage();
 
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -69,13 +68,13 @@ public class ReusableMethods {
         }
     }
 
-    public static void performLogin() {
-        Driver.getDriver().get(ConfigReader.getProperty("URL"));
-        p01HomePage.signInButton.click();
-        p03SignInPage.userNameBox.sendKeys(ConfigReader.getProperty("usernameRegister"));
-        p03SignInPage.passwordBox.sendKeys(ConfigReader.getProperty("passwordRegister"));
-        p03SignInPage.signInButton.click();
-    }
+//    public static void performLogin() {// P01_HomePage'taşındı
+//        Driver.getDriver().get(ConfigReader.getProperty("URL"));
+//        p01HomePage.signInButton.click();
+//        p03SignInPage.userNameBox.sendKeys(ConfigReader.getProperty("usernameRegister"));
+//        p03SignInPage.passwordBox.sendKeys(ConfigReader.getProperty("passwordRegister"));
+//        p03SignInPage.signInButton.click();
+//    }
 
 
     public static void verifyData(WebElement element,String expected) {

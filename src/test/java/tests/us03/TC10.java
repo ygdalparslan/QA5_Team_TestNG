@@ -22,7 +22,7 @@ public class TC10 {
 
         //1	Web sitesine gidilir.
         //2	Log in yapılır.
-        ReusableMethods.performLogin();
+        p01HomePage.performLogin();
 
         //3	Site sayfasında el alt kısımda yer alan "my account" tıklanır.
         p01HomePage.myAccountLink.sendKeys(Keys.ENTER);

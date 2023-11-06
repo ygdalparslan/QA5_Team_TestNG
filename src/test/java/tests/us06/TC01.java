@@ -20,13 +20,16 @@ public class TC01 {
     private final String description = "Kullanıcı istediği ürünü arama kutusunda aratabilmelidir.";
     private final String raporMesaji = "Aranan ürün sonuçlarda görülmüştür.";
 
+
+
     @Test(testName = testName, description = "<span style='font-weight:bold'>Amaç:</span> " + description)
     public void testCase01() {
 
         P01_HomePage p01HomePage = new P01_HomePage();
+        ReusableMethods reusableMethods =new ReusableMethods();
 
         //1	Web sitesine git ve Log in ol
-        ReusableMethods.performLogin();
+        p01HomePage.performLogin();
         ExtentReportUtil.extentTestInfo("Web Sitesine Gidildi ve Log in Olundu");
 
         //2	Ürün Ara

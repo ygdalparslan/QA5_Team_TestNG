@@ -28,7 +28,7 @@ public class TC05 {
         Actions actions = new Actions(Driver.driver);
 
         //1	Web sitesine git ve Log in ol
-        ReusableMethods.performLogin();
+        p01HomePage.performLogin();
         ExtentReportUtil.extentTestInfo("Web Sitesine Gidildi ve Log in Olundu");
 
         //2	Ürün Ara

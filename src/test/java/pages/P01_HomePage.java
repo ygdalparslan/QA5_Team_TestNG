@@ -5,15 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.util.List;
 
 public class P01_HomePage {
 
+    P03_SignInPage p03SignInPage =new P03_SignInPage();
+
     public P01_HomePage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+    public void performLogin() {
+        Driver.getDriver().get(ConfigReader.getProperty("URL"));
+        signInButton.click();
+        p03SignInPage.userNameBox.sendKeys(ConfigReader.getProperty("usernameRegister"));
+        p03SignInPage.passwordBox.sendKeys(ConfigReader.getProperty("passwordRegister"));
+        p03SignInPage.signInButton.click();
     }
 
     @FindBy(xpath = "//span[text()='Register']")
