@@ -50,5 +50,19 @@ public class P01_HomePage {
     @FindBy(xpath = "//*[@id='header']/div/div/div/div/div/div[3]/div/div/form/div")
     public List<WebElement> getSearchList;
 
+    @FindBy(xpath = "//li/a[text()='Electronics']")
+    public WebElement electronicsKategori;
 
+    @FindBy(xpath = "//li[@class='product-wrap']")
+    public List<WebElement> lectronicsList;
+    @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[1]")
+    public WebElement birinciUrun;
+
+    @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
+    public WebElement ikinciUrun;
+    @FindBy(xpath = "//a[.='Start Compare !']")
+    public WebElement startCompareButton;
+
+    @FindBy(xpath = "//div[@class='compare-basic-info']")
+    public List<WebElement> compareList;
 }
