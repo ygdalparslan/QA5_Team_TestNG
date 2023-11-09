@@ -32,8 +32,9 @@ public class TC01 {
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
         ExtentReportUtil.extentTestInfo("Web Sitesine Gidildi");
 
-        //2	Karşılaştırma yapmak için kategöri seç
+        //2	Karşılaştırma yapmak için kategori seç
         p01HomePage.electronicsKategori.click();
+        ExtentReportUtil.extentTestInfo("Karşılaştırma yapmak için kategori seçildi");
 
         //3 Seçilen Kategoriden birinci ürünün "Compare" butonuna tikla
         List<WebElement> urunListesi = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
@@ -67,9 +68,9 @@ public class TC01 {
         ExtentReportUtil.extentTestInfo("'Start Compare' butonuna tıklandı");
 
         //6 Compare için seçilen ürünlerin listelendiğini doğrula
-        int expectedResult  =2; // 2 adet ürün kıyaslandığı için 2 girildi
+        int expectedResult = 2; // 2 adet ürün kıyaslandığı için 2 girildi
         int actualResult = p01HomePage.compareList.size();
-        Assert.assertEquals(expectedResult,actualResult);
+        Assert.assertEquals(expectedResult, actualResult);
         ExtentReportUtil.extentTestInfo("Seçilen ürünlerin listelendiğini doğrulandı");
 
         ReusableMethods.wait(5);
