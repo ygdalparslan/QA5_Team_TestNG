@@ -13,23 +13,23 @@ public class Driver {
 
     public static WebDriver driver;
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
-        if (driver==null){
+        if (driver == null) {
 
             String browser = ConfigReader.getProperty("browser");
-            switch (browser){
+            switch (browser) {
                 case "chrome":
-                    driver =new ChromeDriver();
+                    driver = new ChromeDriver();
                     break;
-                case  "firefox":
-                    driver =new FirefoxDriver();
+                case "firefox":
+                    driver = new FirefoxDriver();
                     break;
                 case "safari":
-                    driver =new SafariDriver();
+                    driver = new SafariDriver();
                     break;
                 case "edge":
-                    driver =new EdgeDriver();
+                    driver = new EdgeDriver();
                     break;
             }
             driver.manage().window().maximize();
@@ -38,10 +38,10 @@ public class Driver {
         return driver;
     }
 
-    public static void closeDriver(){
-        if (driver!=null) {
+    public static void closeDriver() {
+        if (driver != null) {
             driver.close();
-            driver=null;
+            driver = null;
         }
 
     }

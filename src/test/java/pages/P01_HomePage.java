@@ -12,10 +12,9 @@ import java.util.List;
 
 public class P01_HomePage {
 
-    P03_SignInPage p03SignInPage =new P03_SignInPage();
+    P03_SignInPage p03SignInPage = new P03_SignInPage();
 
     public P01_HomePage() {
-
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -42,24 +41,20 @@ public class P01_HomePage {
     @FindBy(css = "input[aria-label='Search']")
     public WebElement searchBox;
 
-    //input[aria-label='Search']
-    //-//div//input[@placeholder='Search'])[1]
-    @FindBy(css = "span~i")
-    public WebElement cartButton;
-
-    @FindBy(xpath = "//*[@id='header']/div/div/div/div/div/div[3]/div/div/form/div")
-    public List<WebElement> getSearchList;
-
     @FindBy(xpath = "//li/a[text()='Electronics']")
     public WebElement electronicsKategori;
 
-    @FindBy(xpath = "//li[@class='product-wrap']")
-    public List<WebElement> lectronicsList;
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[1]")
     public WebElement birinciUrun;
 
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement ikinciUrun;
+
+    @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
+    public WebElement ucuncuUrun;
+
+    @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
+    public WebElement dorduncuUrun;
     @FindBy(xpath = "//a[.='Start Compare !']")
     public WebElement startCompareButton;
 

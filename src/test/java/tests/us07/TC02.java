@@ -2,7 +2,6 @@ package tests.us07;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,17 +11,14 @@ import utilities.Driver;
 import utilities.ExtentReportUtil;
 import utilities.ReusableMethods;
 
-import java.util.List;
+public class TC02 {
 
-public class TC01 {
-
-    private final String testName = "US07 || TC01-Kullanıcı seçtiği ürünleri karşılaştırabilmeli";
-    private final String description = "Kullanıcı seçtiği ürünleri karşılaştırabilmelidir.";
-    private final String raporMesaji = "Kullanıcı seçtiği ürünleri karşılaştırabilmiştir.";
-
+    private final String testName = "US07 || TC02-Kullanıcı en fazla 4 ürünü karşılaştırmak için seçebilmeli";
+    private final String description = "Kullanıcı en fazla 4 ürünü karşılaştırmak için seçebilmelidir.";
+    private final String raporMesaji = "Kullanıcı en fazla 4 ürünü karşılaştırmak için seçebilmiştir.";
 
     @Test(testName = testName, description = "<span style='font-weight:bold'>Amaç:</span> " + description)
-    public void testCase01() {
+    public void testCase02() {
 
         P01_HomePage p01HomePage = new P01_HomePage();
         Actions actions = new Actions(Driver.driver);
@@ -36,44 +32,44 @@ public class TC01 {
         ExtentReportUtil.extentTestInfo("Karşılaştırma yapmak için kategori seçildi");
 
         //3 Seçilen Kategoriden birinci ürünün "Compare" butonuna tikla
-        List<WebElement> urunListesi = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
-        if (urunListesi.size() > 2) {
-            WebElement birinciUrun = urunListesi.get(0);
-            actions.moveToElement(birinciUrun).perform();
-        } else {
-            System.out.println("Listede en az iki ürün bulunmalıdır.");
-            return; // Eğer yeterli ürün yoksa testi burada sonlandır
-        }
+        actions.moveToElement(Driver.getDriver().findElement(By.xpath("(//li[@class='product-wrap'])[1]"))).perform();
         p01HomePage.birinciUrun.click();
         ExtentReportUtil.extentTestInfo("Birinci ürün seçildi");
 
-        Driver.getDriver().navigate().refresh();
-        ReusableMethods.wait(5);
-
         //4 Seçilen Kategoriden ikinci ürünün "Compare" butonuna tikla
-        List<WebElement> urunListesi2 = Driver.getDriver().findElements(By.xpath("//li[@class='product-wrap']"));
-        if (urunListesi2.size() > 2) {
-            WebElement ikinciUrun = urunListesi2.get(1);
-            actions.moveToElement(ikinciUrun).perform();
-        } else {
-            System.out.println("Listede en az iki ürün bulunmalıdır.");
-            return; // Eğer yeterli ürün yoksa testi burada sonlandır
-        }
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.wait(2);
+        actions.moveToElement(Driver.getDriver().findElement(By.xpath("(//li[@class='product-wrap'])[2]"))).perform();
         p01HomePage.ikinciUrun.click();
         ExtentReportUtil.extentTestInfo("İkinci ürün seçildi");
 
-        //5 'Start Compare' butonuna tıkla
+        //5 Seçilen Kategoriden üçüncü ürünün "Compare" butonuna tikla
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.wait(2);
+        actions.moveToElement(Driver.getDriver().findElement(By.xpath("(//li[@class='product-wrap'])[3]"))).perform();
+        p01HomePage.ucuncuUrun.click();
+        ExtentReportUtil.extentTestInfo("Üçüncü ürün seçildi");
+
+        //6 Seçilen Kategoriden dördüncü ürünün "Compare" butonuna tikla
+        Driver.getDriver().navigate().refresh();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        actions.moveToElement(Driver.getDriver().findElement(By.xpath("(//li[@class='product-wrap'])[4]"))).perform();
+        p01HomePage.dorduncuUrun.click();
+        ExtentReportUtil.extentTestInfo("Dördüncü ürün seçildi");
+
+        //7 'Start Compare' butonuna tıkla
         p01HomePage.startCompareButton.sendKeys(Keys.ENTER);
         ExtentReportUtil.extentTestInfo("'Start Compare' butonuna tıklandı");
 
         //6 Compare için seçilen ürünlerin listelendiğini doğrula
-        int expectedResult = 2; // 2 adet ürün kıyaslandığı için 2 girildi
+        int expectedResult = 4; // 4 adet ürün kıyaslandığı için 4 girildi
         int actualResult = p01HomePage.compareList.size();
         Assert.assertEquals(expectedResult, actualResult);
         ExtentReportUtil.extentTestInfo("Seçilen ürünlerin listelendiğini doğrulandı");
 
         ReusableMethods.wait(5);
-       // Driver.closeDriver();
+        Driver.closeDriver();
         ExtentReportUtil.message = "<span style='color:green; font-weight:bold; font-size: 14px'>TEST SONUCU: </span><br><span style='color:purple; font-size: 16px'>" + raporMesaji + "</span>";
     }
 }

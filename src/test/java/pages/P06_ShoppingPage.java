@@ -43,8 +43,6 @@ public class P06_ShoppingPage {
     @FindBy(id = "payment_method_cod")
     public WebElement paymentMethodsPayAtTheDoor;
 
-    // payment_method_cod
-
     @FindBy(id = "place_order")
     public WebElement placeOrderButton;
 
@@ -54,9 +52,4 @@ public class P06_ShoppingPage {
     @FindBy(xpath = "//input[@class='input-text qty text']")
     public WebElement quantity;
 
-    @FindBy(name = "update_cart")
-    public WebElement updateCartButton;
-
-    @FindBy(xpath = "//span/a[text()='pen']")
-    public WebElement productInCart;
 }
