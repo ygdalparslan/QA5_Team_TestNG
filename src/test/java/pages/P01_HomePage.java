@@ -55,6 +55,9 @@ public class P01_HomePage {
 
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement dorduncuUrun;
+
+    @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
+    public WebElement besinciUrun;
     @FindBy(xpath = "//a[.='Start Compare !']")
     public WebElement startCompareButton;
 
