@@ -28,39 +28,28 @@ public class P01_HomePage {
 
     @FindBy(xpath = "//span[text()='Register']")
     public WebElement registerButton;
-
     @FindBy(xpath = "//span[text()='Sign Out']")
     public WebElement signOutLink;
-
     @FindBy(xpath = "//span[text()='Sign In']")
     public WebElement signInButton;
-
     @FindBy(xpath = "/html/body/div[2]/footer/div/section[2]/div/div[2]/div/section/div/div[2]/div/div[2]/div/nav/ul/li[4]/a")
     public WebElement myAccountLink;
-
     @FindBy(css = "input[aria-label='Search']")
     public WebElement searchBox;
-
     @FindBy(xpath = "//li/a[text()='Electronics']")
     public WebElement electronicsKategori;
-
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[1]")
     public WebElement birinciUrun;
-
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement ikinciUrun;
-
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement ucuncuUrun;
-
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement dorduncuUrun;
-
     @FindBy(xpath = "(//a[@class='compare btn-product-icon'])[2]")
     public WebElement besinciUrun;
     @FindBy(xpath = "//a[.='Start Compare !']")
     public WebElement startCompareButton;
-
     @FindBy(xpath = "//div[@class='compare-basic-info']")
     public List<WebElement> compareList;
 }
