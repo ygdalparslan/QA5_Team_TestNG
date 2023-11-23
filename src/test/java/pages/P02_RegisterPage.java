@@ -24,5 +24,4 @@ public class P02_RegisterPage {
 
     @FindBy(xpath = "//*[@id='signup']/form/p[6]") public WebElement accountIsAlreadyRegistered;
 
-
 }

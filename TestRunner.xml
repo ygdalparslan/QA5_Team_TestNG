@@ -11,5 +11,4 @@
             <package name="tests.us02.*"/>
         </packages>
     </test>
-
 </suite>
